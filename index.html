@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CodeAlpha FAQ Chatbot</title>
+  <meta name="description" content="Answers common questions about technology, programming, AI basics, education, and student life from a curated knowledge base using text similarity.">
+  <meta property="og:title" content="CodeAlpha FAQ Chatbot">
+  <meta property="og:description" content="Answers common questions about technology, programming, AI basics, education, and student life from a curated knowledge base using text similarity.">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app" data-max-length="500">
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">?</span>
+        <div>
+          <div class="brand-title">
+            <h1>FAQ Assistant</h1>
+            <span id="faq-count-badge" class="badge">120+ FAQs</span>
+          </div>
+          <p class="subtitle">Enterprise knowledge base with intelligent text similarity</p>
+        </div>
+      </div>
+      <div class="actions">
+        <select id="category" aria-label="Filter by category">
+          <option value="">All topics</option>
+        </select>
+        <button id="browse-btn" class="icon-btn" type="button" title="Browse Knowledge Base" aria-label="Browse Knowledge Base">📚</button>
+        <button id="stats-btn" class="icon-btn" type="button" title="Usage statistics" aria-label="Usage statistics">📊</button>
+        <button id="export-btn" class="icon-btn" type="button" title="Export conversation" aria-label="Export conversation">⬇</button>
+        <button id="theme-btn" class="icon-btn" type="button" title="Toggle theme" aria-label="Toggle theme">🌓</button>
+        <button id="clear-btn" class="btn-ghost" type="button">Clear</button>
+      </div>
+    </header>
+
+    <main id="messages" class="messages" aria-live="polite"></main>
+
+    <section id="suggestions" class="suggestions" aria-label="Suggested questions"></section>
+
+    <form id="chat-form" class="composer" autocomplete="off">
+      <input id="input" type="text" maxlength="500" placeholder="Ask a question… (e.g. Big O, async await, Docker, TCP vs UDP)" aria-label="Your question" autofocus>
+      <button id="send-btn" type="submit">Send</button>
+    </form>
+    <p id="form-error" class="form-error" role="alert" hidden></p>
+    <p class="footnote">Matches questions via TF-IDF & character n-gram cosine similarity. No external LLMs called.</p>
+  </div>
+
+  <dialog id="stats-dialog">
+    <h2>Usage statistics</h2>
+    <p class="muted">Counts since the server started. Message text is not stored.</p>
+    <div id="stats-body"></div>
+    <button id="stats-close" type="button" class="btn-ghost">Close</button>
+  </dialog>
+
+  <dialog id="kb-dialog" class="kb-dialog">
+    <div class="kb-header">
+      <div>
+        <h2>Knowledge Base Catalog</h2>
+        <p id="kb-meta" class="muted">Explore all curated questions, answers, and topic domains</p>
+      </div>
+      <button id="kb-close" type="button" class="btn-ghost" aria-label="Close dialog">✕</button>
+    </div>
+    <div class="kb-controls">
+      <input id="kb-search" type="search" placeholder="Search questions, keywords, topics…" aria-label="Search knowledge base">
+      <div id="kb-pills" class="kb-pills"></div>
+    </div>
+    <div id="kb-list" class="kb-list" role="region" aria-label="FAQ entries"></div>
+  </dialog>
+
+  <script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1622 @@
+{
+  "version": 2,
+  "description": "Enterprise Large-Scale FAQ Knowledge Base for CodeAlpha FAQ Assistant with comprehensive computer science, engineering, web, cloud, database, AI, and career topics.",
+  "faqs": [
+    {
+      "id": "gen-what-is-this",
+      "category": "General Information",
+      "question": "What is this chatbot?",
+      "alternative_questions": [
+        "Who are you?",
+        "What can you do?",
+        "What is this assistant for?",
+        "Explain this chatbot",
+        "Tell me about this chatbot",
+        "Define this chatbot"
+      ],
+      "answer": "I'm an FAQ chatbot. I answer common questions about technology, programming, AI basics, education and student life by finding the closest match in a curated list of questions. I don't generate new answers, so I can only help with topics in my knowledge base."
+    },
+    {
+      "id": "gen-how-it-works",
+      "category": "General Information",
+      "question": "How does this chatbot work?",
+      "alternative_questions": [
+        "How do you find answers?",
+        "How does this chatbot understand my question?"
+      ],
+      "answer": "Your question is cleaned up (lowercased, punctuation and filler words removed) and converted into TF-IDF vectors. Cosine similarity then compares it with every FAQ question, and the best match is returned if its score passes a confidence threshold. Otherwise you get a fallback message with suggestions."
+    },
+    {
+      "id": "gen-is-llm",
+      "category": "General Information",
+      "question": "Is this chatbot powered by ChatGPT or a large language model?",
+      "alternative_questions": [
+        "Do you use GPT?",
+        "Are you a generative AI?",
+        "Is this an LLM?"
+      ],
+      "answer": "No. This is a retrieval-based chatbot built with Python, Flask and scikit-learn. It selects a pre-written answer using TF-IDF and cosine similarity; it does not generate text or call any external AI service."
+    },
+    {
+      "id": "gen-limitations",
+      "category": "General Information",
+      "question": "Why didn't the chatbot understand my question?",
+      "alternative_questions": [
+        "What are the limitations of this chatbot?",
+        "Why do I get a fallback answer?",
+        "Why can't you answer everything?"
+      ],
+      "answer": "The chatbot only knows the questions stored in its FAQ file. If your wording is very different, or the topic isn't covered, the best match scores below the confidence threshold and you get a fallback reply. Try rephrasing with keywords, choosing a topic filter, or using one of the suggested questions."
+    },
+    {
+      "id": "gen-add-faq",
+      "category": "General Information",
+      "question": "How can new questions be added to the chatbot?",
+      "alternative_questions": [
+        "How do I add a new FAQ?",
+        "How do I update the knowledge base?"
+      ],
+      "answer": "Open data/faqs.json and add an object to the \"faqs\" list with a unique id, a category, a question, an answer and optional alternative_questions. Restart the app and the new entry is picked up automatically. No Python changes are needed."
+    },
+    {
+      "id": "gen-privacy",
+      "category": "General Information",
+      "question": "Does the chatbot store my messages?",
+      "alternative_questions": [
+        "Is my conversation saved?",
+        "What happens to my data?",
+        "Is this chat private?"
+      ],
+      "answer": "The server does not save the text of your messages. It only keeps anonymous counters, such as how often each FAQ was matched, and these reset when the server restarts. Your conversation is kept in your browser's session storage so it survives a page refresh, and it disappears when you close the tab or press Clear."
+    },
+    {
+      "id": "gen-greeting",
+      "category": "General Information",
+      "question": "Hello",
+      "alternative_questions": [
+        "Hi",
+        "Hey there",
+        "Good morning",
+        "Good evening"
+      ],
+      "answer": "Hello! I can answer questions about technology, programming, AI fundamentals, education and student life. Try one of the suggested questions or type your own."
+    },
+    {
+      "id": "gen-thanks",
+      "category": "General Information",
+      "question": "Thank you",
+      "alternative_questions": [
+        "Thanks",
+        "Thanks a lot",
+        "Great, thanks!"
+      ],
+      "answer": "You're welcome! Ask me another question any time."
+    },
+    {
+      "id": "tech-internet",
+      "category": "Technology",
+      "question": "What is the internet?",
+      "alternative_questions": [
+        "Define the internet",
+        "How does the internet work?",
+        "Explain the internet",
+        "Tell me about the internet"
+      ],
+      "answer": "The internet is a global network of interconnected computers and networks that exchange data using shared rules called protocols, such as TCP/IP. It carries services like email, file transfer and the World Wide Web."
+    },
+    {
+      "id": "tech-web-vs-internet",
+      "category": "Technology",
+      "question": "What is the difference between the internet and the World Wide Web?",
+      "alternative_questions": [
+        "Internet vs web",
+        "Is the web the same as the internet?",
+        "How does the internet differ from the World Wide Web?",
+        "How do the internet and the World Wide Web differ?",
+        "the internet versus the World Wide Web",
+        "Compare the internet and the World Wide Web",
+        "Explain the difference between the internet and the World Wide Web",
+        "Tell me about the difference between the internet and the World Wide Web",
+        "Define the difference between the internet and the World Wide Web"
+      ],
+      "answer": "The internet is the underlying network infrastructure, while the World Wide Web is one service that runs on it: a collection of web pages and resources accessed through browsers using HTTP or HTTPS. Email and online gaming also use the internet but are not part of the web."
+    },
+    {
+      "id": "tech-cloud",
+      "category": "Technology",
+      "question": "What is cloud computing?",
+      "alternative_questions": [
+        "Explain the cloud",
+        "What does the cloud mean in technology?",
+        "Explain cloud computing",
+        "Tell me about cloud computing",
+        "Define cloud computing"
+      ],
+      "answer": "Cloud computing means using computing resources such as servers, storage, databases and software over the internet from a provider, instead of owning and maintaining the hardware yourself. You typically pay for what you use and can scale up or down as needed."
+    },
+    {
+      "id": "tech-ip-address",
+      "category": "Technology",
+      "question": "What is an IP address?",
+      "alternative_questions": [
+        "Define IP address",
+        "What does IP stand for?",
+        "Explain an IP address",
+        "Tell me about an IP address",
+        "Define an IP address"
+      ],
+      "answer": "An IP address is a numerical label that identifies a device on a network so data can be sent to the right place. IPv4 addresses look like 192.168.1.1, and the newer IPv6 format uses longer hexadecimal addresses."
+    },
+    {
+      "id": "tech-strong-password",
+      "category": "Technology",
+      "question": "How do I create a strong password?",
+      "alternative_questions": [
+        "What makes a password secure?",
+        "Tips for safe passwords"
+      ],
+      "answer": "Use a long password or passphrase (12 or more characters), avoid personal details and common words, and never reuse the same password on different sites. A password manager can generate and store unique passwords, and two-factor authentication adds another layer of protection."
+    },
+    {
+      "id": "tech-operating-system",
+      "category": "Technology",
+      "question": "What is an operating system?",
+      "alternative_questions": [
+        "Define OS",
+        "Examples of operating systems",
+        "Explain an operating system",
+        "Tell me about an operating system",
+        "Define an operating system"
+      ],
+      "answer": "An operating system (OS) is the core software that manages a computer's hardware and lets applications run. Windows, macOS, Linux, Android and iOS are common examples."
+    },
+    {
+      "id": "tech-open-source",
+      "category": "Technology",
+      "question": "What is open-source software?",
+      "alternative_questions": [
+        "Define open source",
+        "What does open source mean?",
+        "Explain open-source software",
+        "Tell me about open-source software",
+        "Define open-source software"
+      ],
+      "answer": "Open-source software has source code that anyone can read, use, modify and share under a license that permits it. Examples include Linux, Python and Flask. The license still defines the exact rules you must follow."
+    },
+    {
+      "id": "tech-https",
+      "category": "Technology",
+      "question": "What is HTTPS?",
+      "alternative_questions": [
+        "What does the padlock in the browser mean?",
+        "Difference between HTTP and HTTPS",
+        "Explain HTTPS",
+        "Tell me about HTTPS",
+        "Define HTTPS"
+      ],
+      "answer": "HTTPS is HTTP secured with TLS encryption, which protects data travelling between your browser and a website from being read or tampered with. The padlock icon means the connection is encrypted, but it does not guarantee that the site itself is trustworthy."
+    },
+    {
+      "id": "edu-internship",
+      "category": "Education",
+      "question": "What is an internship and why is it useful?",
+      "alternative_questions": [
+        "Why should students do internships?",
+        "Benefits of an internship",
+        "Explain an internship and why is it useful",
+        "Tell me about an internship and why is it useful",
+        "Define an internship and why is it useful"
+      ],
+      "answer": "An internship is a short-term work placement where you apply your skills to real tasks and learn how a profession operates. It builds practical experience, a portfolio and professional contacts, and it often helps when applying for jobs."
+    },
+    {
+      "id": "edu-resume",
+      "category": "Education",
+      "question": "How do I write a good resume as a student?",
+      "alternative_questions": [
+        "Resume tips for freshers",
+        "What should I put on my resume with no experience?"
+      ],
+      "answer": "Keep it to one page and lead with a short summary, education, skills and projects. Describe each project by what you built, the tools you used and what it does, and only list skills you can talk about confidently. Proofread carefully and tailor it to each role."
+    },
+    {
+      "id": "edu-study-effectively",
+      "category": "Education",
+      "question": "How can I study more effectively?",
+      "alternative_questions": [
+        "Study tips",
+        "How do I remember what I learn?"
+      ],
+      "answer": "Active recall (testing yourself) and spaced repetition (reviewing at growing intervals) are usually more effective than rereading notes. Study in focused sessions with short breaks, practice with problems, and explain concepts in your own words."
+    },
+    {
+      "id": "edu-free-resources",
+      "category": "Education",
+      "question": "What free resources can I use to learn programming?",
+      "alternative_questions": [
+        "Where can I learn coding for free?",
+        "Best free websites to learn to code"
+      ],
+      "answer": "Good free options include Harvard's CS50 lectures, freeCodeCamp, MDN Web Docs for web development, and the official Python tutorial at python.org. Pick one and build small projects as you go."
+    },
+    {
+      "id": "edu-technical-interview",
+      "category": "Education",
+      "question": "How do I prepare for a technical interview?",
+      "alternative_questions": [
+        "Tips for coding interviews",
+        "How to prepare for an internship interview"
+      ],
+      "answer": "Review the basics of the language and the topics in the role, practice solving problems out loud, and be ready to explain your own projects in detail, including design decisions and trade-offs. Mock interviews with a friend help, and it is fine to ask clarifying questions."
+    },
+    {
+      "id": "prog-python",
+      "category": "Programming",
+      "question": "What is Python?",
+      "alternative_questions": [
+        "Tell me about Python",
+        "Why is Python popular?",
+        "Explain Python",
+        "Define Python"
+      ],
+      "answer": "Python is a high-level, general-purpose programming language known for its readable syntax. It is widely used for web development, automation, data analysis and machine learning, and it has a large ecosystem of libraries."
+    },
+    {
+      "id": "prog-list-vs-tuple",
+      "category": "Programming",
+      "question": "What is the difference between a list and a tuple in Python?",
+      "alternative_questions": [
+        "List vs tuple",
+        "Are tuples mutable?",
+        "How does a list differ from a tuple in Python?",
+        "How do a list and a tuple in Python differ?",
+        "a list versus a tuple in Python",
+        "Compare a list and a tuple in Python",
+        "Explain the difference between a list and a tuple in Python",
+        "Tell me about the difference between a list and a tuple in Python",
+        "Define the difference between a list and a tuple in Python"
+      ],
+      "answer": "Lists are mutable, so you can add, remove or change items after creating them, while tuples are immutable and cannot be changed once created. Tuples are often used for fixed collections and can be dictionary keys when their items are hashable."
+    },
+    {
+      "id": "prog-virtual-environment",
+      "category": "Programming",
+      "question": "What is a virtual environment in Python?",
+      "alternative_questions": [
+        "Why use venv?",
+        "How do I create a virtual environment?",
+        "Explain a virtual environment in Python",
+        "Tell me about a virtual environment in Python",
+        "Define a virtual environment in Python"
+      ],
+      "answer": "A virtual environment is an isolated Python setup with its own installed packages, so different projects don't conflict. On Windows you can create one with `py -m venv .venv` and install packages with `.\\.venv\\Scripts\\python.exe -m pip install -r requirements.txt`."
+    },
+    {
+      "id": "prog-git",
+      "category": "Programming",
+      "question": "What is Git and why should I use it?",
+      "alternative_questions": [
+        "What is version control?",
+        "Why is Git useful?",
+        "Explain Git and why should I use it",
+        "Tell me about Git and why should I use it",
+        "Define Git and why should I use it"
+      ],
+      "answer": "Git is a version control system that records changes to your files over time. It lets you review history, undo mistakes, work on features in branches and collaborate with others without overwriting each other's work."
+    },
+    {
+      "id": "prog-git-vs-github",
+      "category": "Programming",
+      "question": "What is the difference between Git and GitHub?",
+      "alternative_questions": [
+        "Git vs GitHub",
+        "Is GitHub the same as Git?",
+        "How does Git differ from GitHub?",
+        "How do Git and GitHub differ?",
+        "Git versus GitHub",
+        "Compare Git and GitHub",
+        "Explain the difference between Git and GitHub",
+        "Tell me about the difference between Git and GitHub",
+        "Define the difference between Git and GitHub"
+      ],
+      "answer": "Git is the tool that tracks changes on your computer. GitHub is an online service that hosts Git repositories and adds collaboration features such as pull requests and issues. You can use Git without GitHub, but GitHub makes sharing code easier."
+    },
+    {
+      "id": "prog-api",
+      "category": "Programming",
+      "question": "What is an API?",
+      "alternative_questions": [
+        "Define API",
+        "What does API stand for?",
+        "Explain an API",
+        "Tell me about an API",
+        "Define an API"
+      ],
+      "answer": "An API (Application Programming Interface) is a defined way for one piece of software to request data or actions from another. Web APIs usually receive HTTP requests and return data, often as JSON. This chatbot's web page talks to its Flask backend that way."
+    },
+    {
+      "id": "prog-flask",
+      "category": "Programming",
+      "question": "What is Flask?",
+      "alternative_questions": [
+        "Tell me about the Flask framework",
+        "What is Flask used for?",
+        "Explain Flask",
+        "Tell me about Flask",
+        "Define Flask"
+      ],
+      "answer": "Flask is a lightweight Python web framework for building websites and APIs. It provides routing and request handling and leaves other choices, such as databases, to you, which makes it popular for small and medium projects."
+    },
+    {
+      "id": "prog-json",
+      "category": "Programming",
+      "question": "What is JSON?",
+      "alternative_questions": [
+        "Explain JSON format",
+        "What does JSON stand for?",
+        "Explain JSON",
+        "Tell me about JSON",
+        "Define JSON"
+      ],
+      "answer": "JSON (JavaScript Object Notation) is a text format for structured data that uses objects, arrays, strings, numbers, booleans and null. It is human-readable and supported by almost every programming language, which is why it is common for APIs and configuration files."
+    },
+    {
+      "id": "prog-oop",
+      "category": "Programming",
+      "question": "What is object-oriented programming?",
+      "alternative_questions": [
+        "Explain OOP",
+        "What are classes and objects?",
+        "Explain object-oriented programming",
+        "Tell me about object-oriented programming",
+        "Define object-oriented programming"
+      ],
+      "answer": "Object-oriented programming (OOP) organizes code around objects that bundle data (attributes) and behavior (methods), defined by classes. Core ideas include encapsulation, inheritance, polymorphism and abstraction."
+    },
+    {
+      "id": "prog-debugging",
+      "category": "Programming",
+      "question": "How do I fix errors in my code?",
+      "alternative_questions": [
+        "How do I debug a program?",
+        "My code is not working, what should I do?"
+      ],
+      "answer": "Read the error message from the bottom up to find the error type and the exact line, then reproduce the problem with the smallest example you can. Use print statements or a debugger to check values, change one thing at a time, and search the exact message when you are stuck."
+    },
+    {
+      "id": "ai-what-is-ai",
+      "category": "AI Fundamentals",
+      "question": "What is artificial intelligence?",
+      "alternative_questions": [
+        "Define AI",
+        "Explain AI in simple terms",
+        "Explain artificial intelligence",
+        "Tell me about artificial intelligence",
+        "Define artificial intelligence"
+      ],
+      "answer": "Artificial intelligence (AI) is the field of building computer systems that perform tasks normally associated with human intelligence, such as understanding language, recognizing images or making decisions."
+    },
+    {
+      "id": "ai-machine-learning",
+      "category": "AI Fundamentals",
+      "question": "What is machine learning?",
+      "alternative_questions": [
+        "Define machine learning",
+        "How do machines learn?",
+        "Explain machine learning",
+        "Tell me about machine learning"
+      ],
+      "answer": "Machine learning is a branch of AI where algorithms learn patterns from data instead of relying only on hand-written rules. The trained model can then make predictions or decisions on new data."
+    },
+    {
+      "id": "ai-ai-ml-dl",
+      "category": "AI Fundamentals",
+      "question": "What is the difference between AI, machine learning and deep learning?",
+      "alternative_questions": [
+        "AI vs ML vs deep learning",
+        "Is deep learning part of machine learning?",
+        "How does AI, machine learning differ from deep learning?",
+        "How do AI, machine learning and deep learning differ?",
+        "AI, machine learning versus deep learning",
+        "Compare AI, machine learning and deep learning",
+        "Explain the difference between AI, machine learning and deep learning",
+        "Tell me about the difference between AI, machine learning and deep learning",
+        "Define the difference between AI, machine learning and deep learning"
+      ],
+      "answer": "AI is the broad goal of building intelligent machines, machine learning is a subset of AI that learns from data, and deep learning is a subset of machine learning that uses neural networks with many layers."
+    },
+    {
+      "id": "ai-nlp",
+      "category": "AI Fundamentals",
+      "question": "What is natural language processing?",
+      "alternative_questions": [
+        "Define NLP",
+        "How do computers understand human language?",
+        "Explain natural language processing",
+        "Tell me about natural language processing",
+        "Define natural language processing"
+      ],
+      "answer": "Natural language processing (NLP) is the area of AI that lets computers work with human language. Typical tasks include translation, sentiment analysis, chatbots and search. Techniques range from simple word counts to large neural language models."
+    },
+    {
+      "id": "ai-tfidf",
+      "category": "AI Fundamentals",
+      "question": "What is TF-IDF?",
+      "alternative_questions": [
+        "Explain TF-IDF",
+        "What does TF-IDF stand for?",
+        "Tell me about TF-IDF",
+        "Define TF-IDF"
+      ],
+      "answer": "TF-IDF (term frequency-inverse document frequency) scores how important a word is to a text compared with a collection of texts. Words that appear often in one text but rarely elsewhere get high weights, while very common words get low weights."
+    },
+    {
+      "id": "ai-cosine-similarity",
+      "category": "AI Fundamentals",
+      "question": "What is cosine similarity?",
+      "alternative_questions": [
+        "Explain cosine similarity",
+        "How do you measure similarity between texts?",
+        "Tell me about cosine similarity",
+        "Define cosine similarity"
+      ],
+      "answer": "Cosine similarity measures the angle between two vectors: 1 means they point the same way and 0 means they share nothing. For text, the vectors are built from word weights, so it compares wording overlap. It does not check whether either statement is true."
+    },
+    {
+      "id": "ai-supervised-vs-unsupervised",
+      "category": "AI Fundamentals",
+      "question": "What is the difference between supervised and unsupervised learning?",
+      "alternative_questions": [
+        "Supervised vs unsupervised learning",
+        "What is labeled data?",
+        "How does supervised differ from unsupervised learning?",
+        "How do supervised and unsupervised learning differ?",
+        "supervised versus unsupervised learning",
+        "Compare supervised and unsupervised learning",
+        "Explain the difference between supervised and unsupervised learning",
+        "Tell me about the difference between supervised and unsupervised learning",
+        "Define the difference between supervised and unsupervised learning"
+      ],
+      "answer": "Supervised learning trains on labeled examples (inputs with known correct outputs) to predict labels for new data, as in spam detection. Unsupervised learning finds structure in unlabeled data, such as grouping similar customers with clustering."
+    },
+    {
+      "id": "ai-overfitting",
+      "category": "AI Fundamentals",
+      "question": "What is overfitting in machine learning?",
+      "alternative_questions": [
+        "Why does my model do well on training data but badly on new data?",
+        "How do I avoid overfitting?",
+        "Explain overfitting in machine learning",
+        "Tell me about overfitting in machine learning",
+        "Define overfitting in machine learning"
+      ],
+      "answer": "Overfitting happens when a model learns the training data too closely, including its noise, so it performs poorly on new data. Common remedies include more data, simpler models, regularization, cross-validation and early stopping."
+    },
+    {
+      "id": "ai-neural-network",
+      "category": "AI Fundamentals",
+      "question": "What is a neural network?",
+      "alternative_questions": [
+        "Explain neural networks",
+        "How does a neural network work?",
+        "Explain a neural network",
+        "Tell me about a neural network",
+        "Define a neural network"
+      ],
+      "answer": "A neural network is a model made of layers of connected units (neurons) that transform inputs into outputs. It learns by adjusting the connection weights to reduce prediction error, usually with gradient descent."
+    },
+    {
+      "id": "stu-first-language",
+      "category": "Student Questions",
+      "question": "Which programming language should I learn first?",
+      "alternative_questions": [
+        "Best language for beginners",
+        "Python or Java for a beginner?"
+      ],
+      "answer": "Python is a popular first choice because its syntax is easy to read and it is useful in many areas. The best language depends on your goals (web, mobile, games or data), so choose one that fits and focus on understanding programming concepts, which carry over between languages."
+    },
+    {
+      "id": "stu-portfolio-project",
+      "category": "Student Questions",
+      "question": "How do I build a portfolio project?",
+      "alternative_questions": [
+        "What projects should I put in my portfolio?",
+        "Project ideas for beginners"
+      ],
+      "answer": "Pick a small problem you care about, build a complete working version, then polish it with tests, a clear README and screenshots. Ideas include a to-do app, a quiz game, a weather dashboard or an FAQ chatbot like this one. A finished, well-documented project that you can explain beats several half-finished ones."
+    },
+    {
+      "id": "stu-daily-practice",
+      "category": "Student Questions",
+      "question": "How much should I practice coding every day?",
+      "alternative_questions": [
+        "How many hours should I code daily?",
+        "How do I stay consistent with learning to code?"
+      ],
+      "answer": "There is no fixed number, and consistency matters more than long marathons. Even 30 to 60 focused minutes most days, spent building things rather than only watching tutorials, usually works better than an occasional long session."
+    },
+    {
+      "id": "stu-github-upload",
+      "category": "Student Questions",
+      "question": "How do I upload my project to GitHub?",
+      "alternative_questions": [
+        "How do I push code to GitHub?",
+        "Steps to publish a project on GitHub"
+      ],
+      "answer": "Create an empty repository on GitHub, then in your project folder run `git init`, `git add .`, `git commit -m \"Initial commit\"`, `git branch -M main`, `git remote add origin <your-repo-url>` and `git push -u origin main`. Check your .gitignore first so secrets and virtual environments are not uploaded."
+    },
+    {
+      "id": "stu-time-management",
+      "category": "Student Questions",
+      "question": "How do I balance studies and personal projects?",
+      "alternative_questions": [
+        "Time management tips for students",
+        "How do I manage my time better?"
+      ],
+      "answer": "Plan your week with fixed study blocks, set small project goals (for example one feature per session) and protect time for rest. Prioritize deadlines, avoid multitasking and review your plan weekly."
+    },
+    {
+      "id": "stu-motivation",
+      "category": "Student Questions",
+      "question": "How do I stay motivated when learning gets hard?",
+      "alternative_questions": [
+        "I feel stuck while learning to code",
+        "How do I avoid giving up on a difficult subject?"
+      ],
+      "answer": "Break the topic into small tasks you can finish in one sitting and track your progress. Struggling is a normal part of learning. Take breaks, ask for help in communities or from mentors, and revisit earlier projects to see how far you have come."
+    },
+    {
+      "id": "cs-big-o",
+      "category": "Computer Science",
+      "question": "What is Big O notation?",
+      "alternative_questions": [
+        "Explain time complexity and Big O",
+        "What does Big O notation mean?",
+        "How to calculate algorithm time complexity?",
+        "Why is Big O important?",
+        "Explain Big O notation",
+        "Tell me about Big O notation",
+        "Define Big O notation"
+      ],
+      "answer": "Big O notation describes the upper bound of an algorithm's runtime or space requirements as the input size (n) grows. Common complexities from fastest to slowest include O(1) constant, O(log n) logarithmic, O(n) linear, O(n log n) linearithmic, O(n^2) quadratic, and O(2^n) exponential."
+    },
+    {
+      "id": "cs-stack-vs-heap",
+      "category": "Computer Science",
+      "question": "What is the difference between stack and heap memory?",
+      "alternative_questions": [
+        "Stack memory vs heap memory",
+        "How does stack differ from heap in memory?",
+        "When is memory allocated on stack vs heap?",
+        "How does stack differ from heap?",
+        "How do stack and heap differ?",
+        "stack versus heap",
+        "Compare stack and heap",
+        "Explain the difference between stack and heap memory",
+        "Tell me about the difference between stack and heap memory",
+        "Define the difference between stack and heap memory"
+      ],
+      "answer": "The stack is fast, contiguous memory managed automatically by CPU for local function variables and call frames, with a fixed LIFO lifetime. The heap is dynamic memory allocated at runtime for objects with variable sizes or longer lifetimes, requiring manual freeing or garbage collection, but is slightly slower."
+    },
+    {
+      "id": "cs-concurrency-vs-parallelism",
+      "category": "Computer Science",
+      "question": "What is the difference between concurrency and parallelism?",
+      "alternative_questions": [
+        "Concurrency vs parallelism",
+        "Explain concurrent versus parallel execution",
+        "How are concurrency and parallelism different?",
+        "How does concurrency differ from parallelism?",
+        "How do concurrency and parallelism differ?",
+        "concurrency versus parallelism",
+        "Compare concurrency and parallelism",
+        "Explain the difference between concurrency and parallelism",
+        "Tell me about the difference between concurrency and parallelism",
+        "Define the difference between concurrency and parallelism"
+      ],
+      "answer": "Concurrency is about dealing with multiple tasks at once by interleaving execution (like an OS scheduling threads on a single core). Parallelism is about executing multiple tasks simultaneously on multiple physical CPU cores or processors."
+    },
+    {
+      "id": "cs-hash-table",
+      "category": "Computer Science",
+      "question": "How does a hash table work and how does it handle collisions?",
+      "alternative_questions": [
+        "Explain hash maps and collision resolution",
+        "What is a hash table?",
+        "How do hash tables achieve O(1) lookup?",
+        "Chaining vs open addressing in hash tables"
+      ],
+      "answer": "A hash table uses a hash function to map keys to bucket indices in an array for average O(1) lookups and insertions. Collisions occur when different keys hash to the same bucket; they are resolved via chaining (linked lists or balanced trees per bucket) or open addressing (probing for the next open slot)."
+    },
+    {
+      "id": "cs-binary-search-tree",
+      "category": "Computer Science",
+      "question": "What is a Binary Search Tree (BST) and what are its time complexities?",
+      "alternative_questions": [
+        "Explain binary search trees",
+        "How does BST search work?",
+        "What is the time complexity of a BST?",
+        "Explain a Binary Search Tree (BST) and what are its time complexities",
+        "Tell me about a Binary Search Tree (BST) and what are its time complexities",
+        "Define a Binary Search Tree (BST) and what are its time complexities"
+      ],
+      "answer": "A Binary Search Tree is a hierarchical data structure where each node has at most two children, with left descendants smaller than the node and right descendants greater. Search, insert, and delete take average O(log n) time, but can degrade to O(n) in unbalanced trees (resolved by self-balancing trees like AVL or Red-Black trees)."
+    },
+    {
+      "id": "cs-recursion",
+      "category": "Computer Science",
+      "question": "What is recursion and what is a base case?",
+      "alternative_questions": [
+        "Explain recursive functions",
+        "What is recursion in programming?",
+        "Why is a base case necessary in recursion?",
+        "What causes a stack overflow error?",
+        "Explain recursion and what is a base case",
+        "Tell me about recursion and what is a base case",
+        "Define recursion and what is a base case"
+      ],
+      "answer": "Recursion is a programming technique where a function solves a problem by calling itself with smaller sub-problems. A base case is a stopping condition that returns directly without further recursive calls; omitting or incorrectly defining a base case causes infinite recursion and a stack overflow error."
+    },
+    {
+      "id": "cs-cpu-vs-gpu",
+      "category": "Computer Science",
+      "question": "What is the difference between a CPU and a GPU?",
+      "alternative_questions": [
+        "CPU versus GPU",
+        "Why are GPUs used for machine learning and graphics?",
+        "Compare CPU and GPU architectures",
+        "How does a CPU differ from a GPU?",
+        "How do a CPU and a GPU differ?",
+        "a CPU versus a GPU",
+        "Compare a CPU and a GPU",
+        "Explain the difference between a CPU and a GPU",
+        "Tell me about the difference between a CPU and a GPU",
+        "Define the difference between a CPU and a GPU"
+      ],
+      "answer": "A Central Processing Unit (CPU) has a few powerful cores optimized for low-latency sequential processing, branching logic, and complex system control. A Graphics Processing Unit (GPU) has thousands of smaller cores designed for massive parallel arithmetic, making it ideal for 3D rendering, video processing, and matrix calculations in deep learning."
+    },
+    {
+      "id": "cs-caching",
+      "category": "Computer Science",
+      "question": "What is caching and how does it improve system performance?",
+      "alternative_questions": [
+        "Explain caching in software",
+        "What is a cache?",
+        "Cache eviction policies like LRU",
+        "Explain caching and how does it improve system performance",
+        "Tell me about caching and how does it improve system performance",
+        "Define caching and how does it improve system performance"
+      ],
+      "answer": "Caching is storing copies of frequently accessed or expensive computation results in a high-speed storage layer (like RAM, Redis, or CPU L1/L2/L3 cache) to reduce latency and database load. Common eviction strategies include Least Recently Used (LRU) and First-In-First-Out (FIFO)."
+    },
+    {
+      "id": "prog-oop-pillars",
+      "category": "Programming",
+      "question": "What are the four pillars of Object-Oriented Programming (OOP)?",
+      "alternative_questions": [
+        "Four pillars of OOP",
+        "Explain encapsulation, inheritance, polymorphism and abstraction",
+        "OOP principles"
+      ],
+      "answer": "The four core pillars of OOP are: Encapsulation (bundling data and methods while hiding internal state), Abstraction (exposing simple interfaces while hiding implementation complexity), Inheritance (reusing attributes and behaviors across class hierarchies), and Polymorphism (allowing different classes to be treated through the same interface)."
+    },
+    {
+      "id": "prog-functional-programming",
+      "category": "Programming",
+      "question": "What is functional programming and what are pure functions?",
+      "alternative_questions": [
+        "Explain functional programming concepts",
+        "What is a pure function in programming?",
+        "Immutability and pure functions",
+        "Explain functional programming and what are pure functions",
+        "Tell me about functional programming and what are pure functions",
+        "Define functional programming and what are pure functions"
+      ],
+      "answer": "Functional programming treats computation as the evaluation of mathematical functions, avoiding mutable state and side effects. A pure function always produces the same output for the same input and does not modify external state (such as mutating globals or performing I/O), making code predictable and easily testable."
+    },
+    {
+      "id": "prog-async-await",
+      "category": "Programming",
+      "question": "How does asynchronous programming and async/await work?",
+      "alternative_questions": [
+        "Explain async await and promises",
+        "How do promises and async await work in JavaScript?",
+        "What does async await do?"
+      ],
+      "answer": "Asynchronous programming lets programs initiate long-running operations (like network requests or file reads) without blocking the execution thread. `async` functions return Promises, and `await` pauses execution of the surrounding async block until the Promise settles, allowing non-blocking code to be written with clean, synchronous-like syntax."
+    },
+    {
+      "id": "prog-garbage-collection",
+      "category": "Programming",
+      "question": "What is garbage collection in programming languages?",
+      "alternative_questions": [
+        "How does garbage collection work?",
+        "What is automatic memory management?",
+        "Mark and sweep garbage collection",
+        "Explain garbage collection in programming languages",
+        "Tell me about garbage collection in programming languages",
+        "Define garbage collection in programming languages"
+      ],
+      "answer": "Garbage collection (GC) is automatic memory management that reclaims heap memory allocated to objects that are no longer reachable by the running program. Modern runtimes (like V8, JVM, and Go) use generational garbage collection and mark-and-sweep algorithms to minimize pauses while avoiding memory leaks."
+    },
+    {
+      "id": "prog-git-merge-vs-rebase",
+      "category": "Programming",
+      "question": "What is the difference between git merge and git rebase?",
+      "alternative_questions": [
+        "Git merge vs git rebase",
+        "When should I use merge or rebase in git?",
+        "Compare git rebase and merge",
+        "How does git merge differ from git rebase?",
+        "How do git merge and git rebase differ?",
+        "git merge versus git rebase",
+        "Compare git merge and git rebase",
+        "Explain the difference between git merge and git rebase",
+        "Tell me about the difference between git merge and git rebase",
+        "Define the difference between git merge and git rebase"
+      ],
+      "answer": "Git merge combines branches by creating a new merge commit, preserving the exact historical timeline of both branches. Git rebase moves the entire feature branch so it begins at the tip of the target branch, rewriting commit history to produce a clean, linear commit log. Rebase is great for local branches before merging, but should not be used on shared public branches."
+    },
+    {
+      "id": "prog-testing-types",
+      "category": "Programming",
+      "question": "What is the difference between unit testing, integration testing, and end-to-end testing?",
+      "alternative_questions": [
+        "Unit vs integration vs e2e tests",
+        "Explain testing pyramid",
+        "What are the types of automated software tests?",
+        "How does unit testing, integration testing, differ from end-to-end testing?",
+        "How do unit testing, integration testing, and end-to-end testing differ?",
+        "unit testing, integration testing, versus end-to-end testing",
+        "Compare unit testing, integration testing, and end-to-end testing",
+        "Explain the difference between unit testing, integration testing, and end-to-end testing",
+        "Tell me about the difference between unit testing, integration testing, and end-to-end testing",
+        "Define the difference between unit testing, integration testing, and end-to-end testing"
+      ],
+      "answer": "Unit tests verify individual functions or components in complete isolation using mocks. Integration tests verify that multiple modules or services interact properly (such as an API route communicating with a database). End-to-end (E2E) tests simulate realistic user interactions across the entire assembled application from the browser to the backend."
+    },
+    {
+      "id": "prog-solid-principles",
+      "category": "Programming",
+      "question": "What are the SOLID design principles in software engineering?",
+      "alternative_questions": [
+        "Explain SOLID principles",
+        "What does SOLID stand for in OOP?",
+        "SOLID software architecture"
+      ],
+      "answer": "SOLID stands for: Single Responsibility (one reason to change per class), Open/Closed (open for extension, closed for modification), Liskov Substitution (derived classes must substitute for base classes without breaking behavior), Interface Segregation (small, specific interfaces rather than large bloated ones), and Dependency Inversion (depend upon abstractions rather than concrete classes)."
+    },
+    {
+      "id": "prog-typescript-vs-javascript",
+      "category": "Programming",
+      "question": "What are the main advantages of TypeScript over vanilla JavaScript?",
+      "alternative_questions": [
+        "Why use TypeScript instead of JavaScript?",
+        "TypeScript vs JavaScript differences",
+        "What is TypeScript?"
+      ],
+      "answer": "TypeScript is a statically typed superset of JavaScript that compiles to plain JavaScript. It catches bugs and type mismatches at compile time rather than runtime, offers intelligent IDE autocomplete and refactoring, acts as self-documenting code, and scales much more maintainably in medium to large teams."
+    },
+    {
+      "id": "web-http-methods",
+      "category": "Web Development",
+      "question": "What are the standard HTTP methods and their idempotency?",
+      "alternative_questions": [
+        "HTTP GET POST PUT PATCH DELETE",
+        "What is an idempotent HTTP method?",
+        "Difference between PUT and PATCH in REST"
+      ],
+      "answer": "GET retrieves data without side effects (safe and idempotent). POST creates new resources (not idempotent). PUT replaces a resource completely (idempotent). PATCH applies partial modifications to a resource. DELETE removes a resource (idempotent). An idempotent operation produces the same server state whether executed once or multiple times."
+    },
+    {
+      "id": "web-rest-vs-graphql",
+      "category": "Web Development",
+      "question": "What is the difference between REST and GraphQL APIs?",
+      "alternative_questions": [
+        "REST API vs GraphQL",
+        "Why choose GraphQL over REST?",
+        "Compare REST and GraphQL architectures",
+        "How does REST differ from GraphQL APIs?",
+        "How do REST and GraphQL APIs differ?",
+        "REST versus GraphQL APIs",
+        "Compare REST and GraphQL APIs",
+        "Explain the difference between REST and GraphQL APIs",
+        "Tell me about the difference between REST and GraphQL APIs",
+        "Define the difference between REST and GraphQL APIs"
+      ],
+      "answer": "REST uses fixed endpoints corresponding to resources, standard HTTP verbs, and predetermined response shapes, which can lead to over-fetching or under-fetching data. GraphQL provides a single endpoint where clients request the exact fields and nested relationships they need in a single query schema, though it requires more complex caching and server logic."
+    },
+    {
+      "id": "web-cookies-vs-localstorage",
+      "category": "Web Development",
+      "question": "What is the difference between cookies, localStorage, and sessionStorage?",
+      "alternative_questions": [
+        "Cookies vs localStorage vs sessionStorage",
+        "Client side storage options in browsers",
+        "Where should I store auth tokens in the browser?",
+        "How does cookies, localStorage, differ from sessionStorage?",
+        "How do cookies, localStorage, and sessionStorage differ?",
+        "cookies, localStorage, versus sessionStorage",
+        "Compare cookies, localStorage, and sessionStorage",
+        "Explain the difference between cookies, localStorage, and sessionStorage",
+        "Tell me about the difference between cookies, localStorage, and sessionStorage",
+        "Define the difference between cookies, localStorage, and sessionStorage"
+      ],
+      "answer": "Cookies are small (4KB) key-value pairs automatically sent with HTTP requests to the server, and `HttpOnly; Secure; SameSite=Strict` cookies are recommended for auth session tokens to prevent XSS. `localStorage` holds 5-10MB persistently until cleared, while `sessionStorage` lasts only as long as the current browser tab."
+    },
+    {
+      "id": "web-cors",
+      "category": "Web Development",
+      "question": "What is Cross-Origin Resource Sharing (CORS) and why does CORS error occur?",
+      "alternative_questions": [
+        "What is CORS and how to fix CORS error?",
+        "Explain Cross Origin Resource Sharing",
+        "Why does my API have CORS blocked?",
+        "Explain Cross-Origin Resource Sharing (CORS) and why does CORS error occur",
+        "Tell me about Cross-Origin Resource Sharing (CORS) and why does CORS error occur",
+        "Define Cross-Origin Resource Sharing (CORS) and why does CORS error occur"
+      ],
+      "answer": "CORS is a browser security mechanism that restricts web applications running on one domain from making XMLHttpRequest or fetch requests to a different domain. When a cross-origin request is made, browsers check the server's response headers (like `Access-Control-Allow-Origin`); if the header doesn't allow the caller's origin, the browser blocks the response."
+    },
+    {
+      "id": "web-react-hooks",
+      "category": "Web Development",
+      "question": "What are React hooks and what is the difference between useState and useEffect?",
+      "alternative_questions": [
+        "Explain React useState and useEffect",
+        "What are hooks in React?",
+        "How does useEffect work?",
+        "How does useState differ from useEffect?",
+        "How do useState and useEffect differ?",
+        "useState versus useEffect",
+        "Compare useState and useEffect"
+      ],
+      "answer": "React hooks allow functional components to manage state and lifecycle features without writing class components. `useState` declares a state variable and updater function that triggers re-renders when changed. `useEffect` handles side effects (like data fetching, timers, or DOM subscriptions) after the component renders, controlled by a dependency array."
+    },
+    {
+      "id": "web-ssr-vs-csr-vs-ssg",
+      "category": "Web Development",
+      "question": "What is the difference between CSR, SSR, and SSG rendering strategies?",
+      "alternative_questions": [
+        "Client-side rendering vs server-side rendering vs static site generation",
+        "SSR vs CSR vs SSG in Next.js and modern web",
+        "What is server side rendering?",
+        "How does CSR, SSR, differ from SSG rendering strategies?",
+        "How do CSR, SSR, and SSG rendering strategies differ?",
+        "CSR, SSR, versus SSG rendering strategies",
+        "Compare CSR, SSR, and SSG rendering strategies",
+        "Explain the difference between CSR, SSR, and SSG rendering strategies",
+        "Tell me about the difference between CSR, SSR, and SSG rendering strategies",
+        "Define the difference between CSR, SSR, and SSG rendering strategies"
+      ],
+      "answer": "Client-Side Rendering (CSR) serves a bare HTML shell and JavaScript builds the UI in the user's browser. Server-Side Rendering (SSR) renders HTML on the server on each request, giving fast initial paint and strong SEO for dynamic content. Static Site Generation (SSG) compiles HTML at build time for instant delivery via CDN, ideal for blogs, documentation, and marketing pages."
+    },
+    {
+      "id": "web-jwt-auth",
+      "category": "Web Development",
+      "question": "How does JSON Web Token (JWT) authentication work?",
+      "alternative_questions": [
+        "What is a JWT and how does it work?",
+        "Explain JSON Web Token structure",
+        "How to implement token-based authentication?"
+      ],
+      "answer": "A JWT is a compact URL-safe token consisting of three Base64URL-encoded parts: Header (algorithm), Payload (claims/user data), and Signature (signed with a secret key or private key). Upon login, the server issues a signed JWT; the client sends it in the `Authorization: Bearer <token>` header, allowing stateless authentication without server session lookups."
+    },
+    {
+      "id": "web-websocket",
+      "category": "Web Development",
+      "question": "What are WebSockets and when should they be used instead of HTTP polling?",
+      "alternative_questions": [
+        "WebSockets vs HTTP polling",
+        "How do WebSockets work?",
+        "When to use WebSockets in web apps?"
+      ],
+      "answer": "WebSockets provide persistent, full-duplex, bidirectional communication channels over a single TCP connection initiated via an HTTP upgrade handshake. Unlike HTTP polling where clients repeatedly send requests, WebSockets allow both client and server to push messages instantly with minimal packet overhead, ideal for chat apps, live trading, gaming, and collaborative editors."
+    },
+    {
+      "id": "db-sql-vs-nosql",
+      "category": "Databases",
+      "question": "What is the difference between SQL relational databases and NoSQL databases?",
+      "alternative_questions": [
+        "SQL vs NoSQL databases",
+        "When to use Postgres vs MongoDB?",
+        "Relational versus non-relational database differences",
+        "How does SQL relational databases differ from NoSQL?",
+        "How do SQL relational databases and NoSQL differ?",
+        "SQL relational databases versus NoSQL",
+        "Compare SQL relational databases and NoSQL",
+        "Explain the difference between SQL relational databases and NoSQL databases",
+        "Tell me about the difference between SQL relational databases and NoSQL databases",
+        "Define the difference between SQL relational databases and NoSQL databases"
+      ],
+      "answer": "SQL databases (like PostgreSQL, MySQL) use structured schemas, tables with rows/columns, relational joins, and ACID compliance, making them ideal for complex queries, financial transactions, and structured domains. NoSQL databases (document stores like MongoDB, key-value stores like Redis, columnar stores) offer flexible schemaless data, horizontal scaling, and rapid iteration for unstructured or distributed workloads."
+    },
+    {
+      "id": "db-acid-properties",
+      "category": "Databases",
+      "question": "What are ACID properties in database management systems?",
+      "alternative_questions": [
+        "Explain ACID database transactions",
+        "What does ACID stand for in databases?",
+        "Atomicity Consistency Isolation Durability"
+      ],
+      "answer": "ACID guarantees database transaction reliability: Atomicity (all operations in a transaction succeed, or all roll back completely), Consistency (transactions transition database from one valid state to another obeying constraints), Isolation (concurrent transactions execute independently without interference), and Durability (committed changes survive crashes and power loss)."
+    },
+    {
+      "id": "db-indexing",
+      "category": "Databases",
+      "question": "What is a database index and how does it speed up queries?",
+      "alternative_questions": [
+        "How do database indexes work?",
+        "Explain B-Tree indexing in SQL",
+        "Downsides of database indexes",
+        "Explain a database index and how does it speed up queries",
+        "Tell me about a database index and how does it speed up queries",
+        "Define a database index and how does it speed up queries"
+      ],
+      "answer": "A database index is a data structure (typically a B-Tree or Hash index) that holds sorted references to table rows to enable fast logarithmic O(log n) lookups instead of full table scans O(n). The tradeoff is that indexes consume extra disk space and slightly slow down INSERT, UPDATE, and DELETE operations because indexes must be updated on write."
+    },
+    {
+      "id": "db-normalization",
+      "category": "Databases",
+      "question": "What is database normalization and what are 1NF, 2NF, and 3NF?",
+      "alternative_questions": [
+        "Explain database normalization",
+        "What are normal forms 1NF 2NF 3NF?",
+        "Why normalize a database schema?",
+        "Explain database normalization and what are 1NF, 2NF, and 3NF",
+        "Tell me about database normalization and what are 1NF, 2NF, and 3NF",
+        "Define database normalization and what are 1NF, 2NF, and 3NF"
+      ],
+      "answer": "Normalization organizes relational tables to reduce data redundancy and eliminate update/delete anomalies. First Normal Form (1NF) requires atomic column values and unique primary keys. Second Normal Form (2NF) eliminates partial dependencies on composite keys. Third Normal Form (3NF) eliminates transitive dependencies where non-key attributes depend on other non-key attributes."
+    },
+    {
+      "id": "db-redis-use-cases",
+      "category": "Databases",
+      "question": "What is Redis and what are its primary use cases?",
+      "alternative_questions": [
+        "What is Redis used for?",
+        "Why use Redis as an in-memory cache?",
+        "Redis data structures and caching",
+        "Explain Redis and what are its primary use cases",
+        "Tell me about Redis and what are its primary use cases",
+        "Define Redis and what are its primary use cases"
+      ],
+      "answer": "Redis (Remote Dictionary Server) is an ultra-fast in-memory key-value data store that supports strings, hashes, lists, sets, sorted sets, and pub/sub messaging. It is commonly used for application caching, session storage, rate limiting, leaderboards, distributed locks, and real-time pub/sub notifications."
+    },
+    {
+      "id": "ops-docker-basics",
+      "category": "Cloud & DevOps",
+      "question": "What is Docker and how does containerization differ from virtual machines?",
+      "alternative_questions": [
+        "Docker containers vs virtual machines",
+        "What is Docker containerization?",
+        "Why use Docker in software development?",
+        "Explain Docker and how does containerization differ from virtual machines",
+        "Tell me about Docker and how does containerization differ from virtual machines",
+        "Define Docker and how does containerization differ from virtual machines"
+      ],
+      "answer": "Docker packages an application and all its dependencies into an isolated container image that runs identically on any environment. Unlike Virtual Machines (VMs) which virtualize hardware and run entire guest operating systems with high overhead, Docker containers share the host OS kernel and run as lightweight isolated user-space processes."
+    },
+    {
+      "id": "ops-kubernetes",
+      "category": "Cloud & DevOps",
+      "question": "What is Kubernetes and what problems does it solve?",
+      "alternative_questions": [
+        "Explain Kubernetes in simple terms",
+        "What is K8s container orchestration?",
+        "What does Kubernetes do?",
+        "Explain Kubernetes and what problems does it solve",
+        "Tell me about Kubernetes and what problems does it solve",
+        "Define Kubernetes and what problems does it solve"
+      ],
+      "answer": "Kubernetes (K8s) is an open-source container orchestration platform that automates the deployment, scaling, health checking, load balancing, and self-healing of containerized applications across clusters of servers. Key abstractions include Pods, Deployments, Services, and Ingress controllers."
+    },
+    {
+      "id": "ops-ci-cd-pipeline",
+      "category": "Cloud & DevOps",
+      "question": "What is CI/CD and how does continuous deployment work?",
+      "alternative_questions": [
+        "Explain CI/CD pipeline",
+        "Continuous Integration vs Continuous Delivery vs Continuous Deployment",
+        "How to set up a CI CD workflow?",
+        "Explain CI/CD and how does continuous deployment work",
+        "Tell me about CI/CD and how does continuous deployment work",
+        "Define CI/CD and how does continuous deployment work"
+      ],
+      "answer": "Continuous Integration (CI) automatically builds and tests code whenever developers commit changes to prevent integration issues. Continuous Delivery (CD) automatically stages verified builds for release with manual approval. Continuous Deployment automatically ships every passing commit directly to production environments (e.g. using GitHub Actions or GitLab CI)."
+    },
+    {
+      "id": "ops-microservices-vs-monolith",
+      "category": "Cloud & DevOps",
+      "question": "What are the trade-offs between monolithic architecture and microservices?",
+      "alternative_questions": [
+        "Monolith vs microservices architecture",
+        "When to use microservices instead of a monolith?",
+        "Pros and cons of microservices"
+      ],
+      "answer": "A monolith has all features in a single unified codebase: simpler to develop, test, debug, deploy, and trace early on. Microservices decompose functionality into independently deployable services communicating over network protocols (REST/gRPC): allows separate teams to scale and deploy independently, but introduces distributed systems complexity, network latency, distributed transactions, and monitoring overhead."
+    },
+    {
+      "id": "ops-linux-essential-commands",
+      "category": "Cloud & DevOps",
+      "question": "What are the most essential Linux commands every developer should know?",
+      "alternative_questions": [
+        "Basic Linux commands for developers",
+        "Command line commands cheat sheet Linux",
+        "Important bash commands"
+      ],
+      "answer": "Key Linux commands include: navigation (`cd`, `pwd`, `ls -la`), file manipulation (`mkdir`, `touch`, `cp`, `mv`, `rm -rf`), viewing and editing (`cat`, `less`, `grep`, `nano`, `vim`), permissions (`chmod`, `chown`), system inspection (`ps aux`, `top`/`htop`, `df -h`, `kill -9`), and networking (`curl`, `netstat`/`ss`, `ping`, `ssh`)."
+    },
+    {
+      "id": "ai-transformers-architecture",
+      "category": "AI & Machine Learning",
+      "question": "What is the Transformer architecture and self-attention mechanism?",
+      "alternative_questions": [
+        "Explain transformer neural networks and attention",
+        "How does self-attention work in transformers?",
+        "Why are transformers better than RNNs?",
+        "Explain the Transformer architecture and self-attention mechanism",
+        "Tell me about the Transformer architecture and self-attention mechanism",
+        "Define the Transformer architecture and self-attention mechanism"
+      ],
+      "answer": "The Transformer (introduced in 'Attention Is All You Need') replaces sequential recurrent connections (RNNs) with self-attention mechanisms. Self-attention computes attention weights between every pair of tokens in a sequence simultaneously, capturing long-range dependencies in parallel and powering modern LLMs like GPT, Gemini, and BERT."
+    },
+    {
+      "id": "ai-rag-vs-finetuning",
+      "category": "AI & Machine Learning",
+      "question": "What is Retrieval-Augmented Generation (RAG) vs fine-tuning a model?",
+      "alternative_questions": [
+        "RAG vs fine tuning",
+        "When to use RAG instead of fine-tuning?",
+        "How does Retrieval-Augmented Generation work?",
+        "Explain Retrieval-Augmented Generation (RAG) vs fine-tuning a model",
+        "Tell me about Retrieval-Augmented Generation (RAG) vs fine-tuning a model",
+        "Define Retrieval-Augmented Generation (RAG) vs fine-tuning a model"
+      ],
+      "answer": "RAG retrieves relevant external documents from a vector database based on the user's prompt and inserts them into the context window for the model to synthesize answers with up-to-date, citation-backed facts without retraining. Fine-tuning adjusts the internal neural weights of a model on domain-specific examples to adapt tone, format, or specialized task behavior."
+    },
+    {
+      "id": "ai-vector-embeddings",
+      "category": "AI & Machine Learning",
+      "question": "What are vector embeddings and how are they used in semantic search?",
+      "alternative_questions": [
+        "Explain text embeddings",
+        "What is a vector embedding?",
+        "How does semantic search work with vectors?"
+      ],
+      "answer": "A vector embedding is a high-dimensional numerical representation of text, images, or audio where semantic meaning corresponds to geometric proximity in vector space. Semantic search converts queries and documents into vectors and calculates cosine similarity or dot products, allowing concepts to match even if they do not share identical keywords."
+    },
+    {
+      "id": "ai-prompt-engineering",
+      "category": "AI & Machine Learning",
+      "question": "What is prompt engineering and what are few-shot and chain-of-thought prompting?",
+      "alternative_questions": [
+        "Explain prompt engineering techniques",
+        "What is few-shot prompting and chain of thought?",
+        "How to write better prompts for AI models?",
+        "Explain prompt engineering and what are few-shot and chain-of-thought prompting",
+        "Tell me about prompt engineering and what are few-shot and chain-of-thought prompting",
+        "Define prompt engineering and what are few-shot and chain-of-thought prompting"
+      ],
+      "answer": "Prompt engineering is structuring instructions given to generative models to produce accurate outputs. Zero-shot asks directly without examples; Few-shot provides a few input-output demonstrations in the prompt; Chain-of-Thought (CoT) prompts the model to break complex reasoning into step-by-step intermediate explanations before stating the final answer."
+    },
+    {
+      "id": "sec-sql-injection",
+      "category": "Cybersecurity",
+      "question": "What is SQL Injection (SQLi) and how can it be prevented?",
+      "alternative_questions": [
+        "How does SQL injection work?",
+        "Preventing SQL injection vulnerabilities",
+        "What is SQLi in web security?",
+        "Explain SQL Injection (SQLi) and how can it be prevented",
+        "Tell me about SQL Injection (SQLi) and how can it be prevented",
+        "Define SQL Injection (SQLi) and how can it be prevented"
+      ],
+      "answer": "SQL Injection occurs when untrusted user input is directly concatenated into database queries, allowing attackers to manipulate query logic to view, alter, or delete unauthorized data. It is prevented by always using parameterized queries (prepared statements) or ORMs, validating input, and adhering to the principle of least privilege for database accounts."
+    },
+    {
+      "id": "sec-xss-attacks",
+      "category": "Cybersecurity",
+      "question": "What is Cross-Site Scripting (XSS) and how is it mitigated?",
+      "alternative_questions": [
+        "Explain XSS attacks and prevention",
+        "Stored vs reflected XSS",
+        "How to prevent Cross-Site Scripting?",
+        "Explain Cross-Site Scripting (XSS) and how is it mitigated",
+        "Tell me about Cross-Site Scripting (XSS) and how is it mitigated",
+        "Define Cross-Site Scripting (XSS) and how is it mitigated"
+      ],
+      "answer": "XSS occurs when malicious scripts are injected into trusted websites and executed in victims' browsers, potentially stealing cookies, session tokens, or defacing pages. Types include Stored XSS, Reflected XSS, and DOM-based XSS. Mitigation includes contextual output encoding, Content Security Policy (CSP) headers, and using modern frameworks (like React) that escape content by default."
+    },
+    {
+      "id": "sec-https-tls",
+      "category": "Cybersecurity",
+      "question": "How does HTTPS work and what does TLS encryption provide?",
+      "alternative_questions": [
+        "How does HTTPS and SSL/TLS work?",
+        "Difference between HTTP and HTTPS",
+        "Explain TLS handshake and certificates"
+      ],
+      "answer": "HTTPS encrypts HTTP traffic using TLS (Transport Layer Security). During the TLS handshake, the server presents a signed digital certificate from a Certificate Authority to verify its identity, and asymmetric encryption (public/private keys) securely negotiates a shared symmetric session key. This guarantees confidentiality (eavesdropping prevention), integrity (tamper-proofing), and authentication."
+    },
+    {
+      "id": "sec-auth-vs-authz",
+      "category": "Cybersecurity",
+      "question": "What is the difference between Authentication (AuthN) and Authorization (AuthZ)?",
+      "alternative_questions": [
+        "Authentication vs authorization",
+        "Explain AuthN vs AuthZ",
+        "Difference between identity verification and permission checking",
+        "How does Authentication (AuthN) differ from Authorization (AuthZ)?",
+        "How do Authentication (AuthN) and Authorization (AuthZ) differ?",
+        "Authentication (AuthN) versus Authorization (AuthZ)",
+        "Compare Authentication (AuthN) and Authorization (AuthZ)",
+        "Explain the difference between Authentication (AuthN) and Authorization (AuthZ)",
+        "Tell me about the difference between Authentication (AuthN) and Authorization (AuthZ)",
+        "Define the difference between Authentication (AuthN) and Authorization (AuthZ)"
+      ],
+      "answer": "Authentication (AuthN) verifies WHO a user is (e.g. through passwords, biometric scans, MFA codes, or OAuth identity tokens). Authorization (AuthZ) verifies WHAT permissions or resources an authenticated user is permitted to access (e.g. role-based access control, admin privileges, or resource ownership rules)."
+    },
+    {
+      "id": "career-technical-interviews",
+      "category": "Career & Growth",
+      "question": "How should I prepare for technical coding interviews?",
+      "alternative_questions": [
+        "Technical interview preparation tips",
+        "How to prepare for coding interviews and LeetCode?",
+        "Software engineering interview strategy"
+      ],
+      "answer": "Focus on understanding core data structures (arrays, hash maps, trees, graphs) and algorithmic patterns (two pointers, sliding window, BFS/DFS, dynamic programming). When practicing, vocalize your thought process out loud, clarify constraints, start with brute-force before optimizing, write clean code, and test edge cases before submitting."
+    },
+    {
+      "id": "career-resume-tips",
+      "category": "Career & Growth",
+      "question": "What makes a strong software engineering resume for students and juniors?",
+      "alternative_questions": [
+        "How to write a software engineer resume?",
+        "Resume tips for junior developers",
+        "What should be on a CS student resume?"
+      ],
+      "answer": "Keep your resume to one single page, lead with projects or experience, list technical skills cleanly by category, and structure project bullets using the XYZ formula: 'Accomplished [X], as measured by [Y], by doing [Z]'. Include active GitHub and live deployment links for your projects, and avoid subjective skill rating bars."
+    },
+    {
+      "id": "career-open-source",
+      "category": "Career & Growth",
+      "question": "How can a beginner start contributing to open-source software?",
+      "alternative_questions": [
+        "How to contribute to open source on GitHub?",
+        "First open source contribution for beginners",
+        "Where to find beginner friendly open source projects?"
+      ],
+      "answer": "Start with projects or libraries you already use. Look for repositories with 'good first issue' or 'help wanted' labels. Begin by improving documentation, fixing typos, adding missing unit tests, or reproducing reported bugs. Always read the project's `CONTRIBUTING.md`, adhere to code style guidelines, and open a respectful Pull Request."
+    },
+    {
+      "id": "career-imposter-syndrome",
+      "category": "Career & Growth",
+      "question": "How do I overcome imposter syndrome in tech and software engineering?",
+      "alternative_questions": [
+        "Dealing with imposter syndrome as a developer",
+        "I feel like I'm not good enough at programming",
+        "How to overcome feeling like a tech fraud?"
+      ],
+      "answer": "Imposter syndrome is common even among staff engineers because the tech landscape is vast and constantly evolving. Recognize that you are not expected to know everything; real engineering is knowing how to research, debug, and learn. Keep a 'brag sheet' of problems you have solved, celebrate small incremental milestones, and focus on your progress relative to your past self."
+    },
+    {
+      "id": "career-bootcamp-vs-degree",
+      "category": "Career & Growth",
+      "question": "Is a Computer Science degree better than a coding bootcamp or self-taught path?",
+      "alternative_questions": [
+        "CS degree vs coding bootcamp vs self-taught",
+        "Do I need a computer science degree to get a tech job?",
+        "Can I get a software engineer job without a degree?"
+      ],
+      "answer": "A CS degree provides deep theoretical foundations in algorithms, discrete math, OS, compilers, and networking, as well as access to university career fairs and campus recruiting. Bootcamps and self-taught paths emphasize rapid practical full-stack tool mastery. In the hiring market, demonstrated ability—through polished portfolio projects, open-source work, and interview performance—ultimately matters most."
+    },
+    {
+      "id": "net-tcp-vs-udp",
+      "category": "Networking",
+      "question": "What is the difference between TCP and UDP protocols?",
+      "alternative_questions": [
+        "TCP vs UDP differences",
+        "When to use UDP instead of TCP?",
+        "Transmission Control Protocol vs User Datagram Protocol",
+        "How does TCP differ from UDP?",
+        "How do TCP and UDP differ?",
+        "TCP versus UDP",
+        "Compare TCP and UDP",
+        "Explain the difference between TCP and UDP protocols",
+        "Tell me about the difference between TCP and UDP protocols",
+        "Define the difference between TCP and UDP protocols"
+      ],
+      "answer": "TCP is connection-oriented and guarantees ordered, reliable, error-checked packet delivery using a three-way handshake, retransmissions, and flow control (used for HTTP, email, file downloads). UDP is connectionless and lightweight without delivery guarantees or retransmissions, offering lower latency ideal for live streaming, video calls, VoIP, and multiplayer gaming."
+    },
+    {
+      "id": "net-dns-lookup",
+      "category": "Networking",
+      "question": "How does Domain Name System (DNS) resolution work?",
+      "alternative_questions": [
+        "How does DNS work when you type a URL?",
+        "Explain DNS lookup process",
+        "What is DNS resolution?"
+      ],
+      "answer": "DNS translates human-readable domain names (like example.com) into machine-routable IP addresses. When a user requests a URL, the system checks browser and OS caches, then queries the local DNS resolver, which traverses Root nameservers, Top-Level Domain (TLD) servers (e.g. .com), and finally Authoritative nameservers to retrieve the A/AAAA record."
+    },
+    {
+      "id": "net-osi-model",
+      "category": "Networking",
+      "question": "What are the 7 layers of the OSI model?",
+      "alternative_questions": [
+        "Seven layers of OSI model",
+        "Explain OSI model layers",
+        "What are the network layers in OSI?"
+      ],
+      "answer": "The 7 OSI layers from bottom to top are: 1. Physical (cables, radio waves, bits), 2. Data Link (Ethernet frames, MAC addresses, switches), 3. Network (IP packets, routing), 4. Transport (TCP, UDP, ports), 5. Session (establishing and terminating connections), 6. Presentation (data format, encryption/TLS), and 7. Application (HTTP, SMTP, FTP)."
+    },
+    {
+      "id": "sys-load-balancing",
+      "category": "System Design",
+      "question": "What is a load balancer and what algorithms does it use?",
+      "alternative_questions": [
+        "How do load balancers work?",
+        "Explain load balancing in system design",
+        "Round robin vs least connections load balancing",
+        "Explain a load balancer and what algorithms does it use",
+        "Tell me about a load balancer and what algorithms does it use",
+        "Define a load balancer and what algorithms does it use"
+      ],
+      "answer": "A load balancer distributes incoming network traffic across a pool of backend servers to prevent overload, maximize throughput, and ensure high availability. Common routing algorithms include Round Robin, Weighted Round Robin, Least Connections, and IP Hash (for sticky sessions). Load balancers also perform health checks to remove failing servers automatically."
+    },
+    {
+      "id": "sys-cap-theorem",
+      "category": "System Design",
+      "question": "What is the CAP theorem in distributed systems?",
+      "alternative_questions": [
+        "Explain CAP theorem",
+        "Consistency Availability Partition tolerance",
+        "Why can a distributed system only choose two of CAP?",
+        "Explain the CAP theorem in distributed systems",
+        "Tell me about the CAP theorem in distributed systems",
+        "Define the CAP theorem in distributed systems"
+      ],
+      "answer": "The CAP theorem states that a distributed data store can simultaneously provide at most two of three guarantees: Consistency (every read receives the most recent write or an error), Availability (every request receives a non-error response without guarantee of recent write), and Partition Tolerance (the system continues to operate despite arbitrary network message drops). Since network partitions inevitably happen in real networks, systems must choose between CP and AP."
+    },
+    {
+      "id": "sys-message-queues",
+      "category": "System Design",
+      "question": "What are message queues and why are Kafka and RabbitMQ used?",
+      "alternative_questions": [
+        "Why use message queues like Kafka or RabbitMQ?",
+        "Explain asynchronous message processing",
+        "What is a message broker?"
+      ],
+      "answer": "Message queues decouple producers and consumers by storing messages in an asynchronous buffer until processed. They provide load leveling (preventing traffic spikes from crashing downstream databases), fault tolerance, and event-driven architectures. RabbitMQ specializes in flexible routing and task distribution, while Apache Kafka excels at high-throughput, partitioned event stream retention."
+    },
+    {
+      "id": "sys-cdn-basics",
+      "category": "System Design",
+      "question": "What is a Content Delivery Network (CDN) and how does it work?",
+      "alternative_questions": [
+        "How does a CDN work?",
+        "What is a Content Delivery Network?",
+        "Why use a CDN for web assets?",
+        "Explain a Content Delivery Network (CDN) and how does it work",
+        "Tell me about a Content Delivery Network (CDN) and how does it work",
+        "Define a Content Delivery Network (CDN) and how does it work"
+      ],
+      "answer": "A CDN is a globally distributed network of edge proxy servers that caches static assets (images, CSS, JS, videos) close to end users geographically. When a user requests content, DNS routes them to the nearest Edge Point of Presence (PoP), dramatically reducing latency, bandwidth costs, and server load on the origin server."
+    },
+    {
+      "id": "js-event-loop",
+      "category": "Programming",
+      "question": "How does the JavaScript Event Loop work?",
+      "alternative_questions": [
+        "Explain JS event loop, call stack, microtasks and macrotasks",
+        "How does JavaScript handle single-threaded concurrency?",
+        "What is the event loop in Node.js and browsers?"
+      ],
+      "answer": "JavaScript runs on a single thread with a Call Stack and Heap. When asynchronous operations finish, callbacks enter queues. The Event Loop continuously checks if the Call Stack is empty; if empty, it processes all Microtasks (Promise callbacks, queueMicrotask) before moving to the next Macrotask (setTimeout, setInterval, I/O events)."
+    },
+    {
+      "id": "js-closures",
+      "category": "Programming",
+      "question": "What is a closure in JavaScript and where is it used?",
+      "alternative_questions": [
+        "Explain closures in JavaScript",
+        "What is a closure?",
+        "How do lexical scope and closures work?",
+        "Explain a closure in JavaScript and where is it used",
+        "Tell me about a closure in JavaScript and where is it used",
+        "Define a closure in JavaScript and where is it used"
+      ],
+      "answer": "A closure is a function that retains access to variables from its outer lexical scope even after that outer function has finished executing. Closures are widely used in JavaScript for data encapsulation (private variables), function factories, currying, and memoization."
+    },
+    {
+      "id": "js-debounce-vs-throttle",
+      "category": "Programming",
+      "question": "What is the difference between debounce and throttle?",
+      "alternative_questions": [
+        "Debounce vs throttle in JavaScript",
+        "When to use debounce vs throttle?",
+        "Explain debouncing with search inputs",
+        "How does debounce differ from throttle?",
+        "How do debounce and throttle differ?",
+        "debounce versus throttle",
+        "Compare debounce and throttle",
+        "Explain the difference between debounce and throttle",
+        "Tell me about the difference between debounce and throttle",
+        "Define the difference between debounce and throttle"
+      ],
+      "answer": "Debounce delays function execution until a specified quiet period has elapsed with no new triggers (ideal for search input autocomplete or window resize). Throttle guarantees that a function is executed at most once every specified time interval, regardless of how many times the event fires (ideal for scroll listeners, mouse move tracking, and infinite scroll)."
+    },
+    {
+      "id": "mob-react-native-vs-flutter",
+      "category": "Mobile Development",
+      "question": "What is the difference between React Native and Flutter?",
+      "alternative_questions": [
+        "React Native vs Flutter",
+        "Which mobile framework is better React Native or Flutter?",
+        "Compare Flutter Dart with React Native JavaScript",
+        "How does React Native differ from Flutter?",
+        "How do React Native and Flutter differ?",
+        "React Native versus Flutter",
+        "Compare React Native and Flutter",
+        "Explain the difference between React Native and Flutter",
+        "Tell me about the difference between React Native and Flutter",
+        "Define the difference between React Native and Flutter"
+      ],
+      "answer": "React Native uses JavaScript/TypeScript and maps UI elements to native platform components via a bridge/JSI, allowing developers to leverage React web knowledge and extensive npm packages. Flutter uses Google's Dart language and renders all UI directly using its own custom Skia/Impeller graphics engine, providing identical pixel-perfect cross-platform rendering and excellent 60/120 FPS performance."
+    },
+    {
+      "id": "mob-app-lifecycle",
+      "category": "Mobile Development",
+      "question": "What is the mobile application lifecycle in iOS and Android?",
+      "alternative_questions": [
+        "Mobile app lifecycle states",
+        "Explain foreground background active suspended app states",
+        "How does Android activity and iOS app lifecycle work?",
+        "Explain the mobile application lifecycle in iOS and Android",
+        "Tell me about the mobile application lifecycle in iOS and Android",
+        "Define the mobile application lifecycle in iOS and Android"
+      ],
+      "answer": "Mobile apps transition between states: Not Running (terminated), Active/Foreground (visible and receiving user interaction), Inactive (partially obscured or transitioning), Background (running code without visible UI, like music or location tracking), and Suspended (in memory but execution paused by OS to preserve battery and RAM)."
+    },
+    {
+      "id": "algo-bfs-vs-dfs",
+      "category": "Computer Science",
+      "question": "What is the difference between Breadth-First Search (BFS) and Depth-First Search (DFS)?",
+      "alternative_questions": [
+        "BFS vs DFS graph traversal",
+        "When to use BFS instead of DFS?",
+        "Breadth first search versus depth first search",
+        "How does Breadth-First Search (BFS) differ from Depth-First Search (DFS)?",
+        "How do Breadth-First Search (BFS) and Depth-First Search (DFS) differ?",
+        "Breadth-First Search (BFS) versus Depth-First Search (DFS)",
+        "Compare Breadth-First Search (BFS) and Depth-First Search (DFS)",
+        "Explain the difference between Breadth-First Search (BFS) and Depth-First Search (DFS)",
+        "Tell me about the difference between Breadth-First Search (BFS) and Depth-First Search (DFS)",
+        "Define the difference between Breadth-First Search (BFS) and Depth-First Search (DFS)"
+      ],
+      "answer": "BFS explores a graph or tree level-by-level using a Queue (FIFO), which is guaranteed to find the shortest path in unweighted graphs. DFS explores as deeply as possible along each branch before backtracking using a Stack (LIFO) or recursion, making it memory-efficient for deep trees, cycle detection, and topological sorting."
+    },
+    {
+      "id": "algo-dynamic-programming",
+      "category": "Computer Science",
+      "question": "What is Dynamic Programming and how does memoization differ from tabulation?",
+      "alternative_questions": [
+        "Explain dynamic programming",
+        "What is DP in algorithms?",
+        "Memoization vs tabulation in dynamic programming",
+        "Explain Dynamic Programming and how does memoization differ from tabulation",
+        "Tell me about Dynamic Programming and how does memoization differ from tabulation",
+        "Define Dynamic Programming and how does memoization differ from tabulation"
+      ],
+      "answer": "Dynamic Programming (DP) solves complex problems by breaking them into overlapping sub-problems and optimal substructure. Memoization (top-down) uses recursion and caches sub-problem results in a hash table or array as they are computed. Tabulation (bottom-up) solves the base cases first and iteratively fills a table to construct the final answer without recursion overhead."
+    },
+    {
+      "id": "git-stash-and-cherry-pick",
+      "category": "Programming",
+      "question": "What do git stash and git cherry-pick do?",
+      "alternative_questions": [
+        "How does git stash work?",
+        "What is git cherry pick?",
+        "When to use git cherry-pick and git stash?"
+      ],
+      "answer": "`git stash` temporarily shelves uncommitted local modifications (both staged and unstaged) so you have a clean working directory to switch branches or pull updates, which you can later reapply with `git stash pop`. `git cherry-pick <commit-hash>` applies the changes from an individual specific commit from another branch onto your current branch without merging the whole branch."
+    },
+    {
+      "id": "git-resolve-conflicts",
+      "category": "Programming",
+      "question": "How do I resolve a Git merge conflict?",
+      "alternative_questions": [
+        "How to fix merge conflicts in git?",
+        "Steps to resolve a git merge conflict",
+        "What causes a merge conflict in git?"
+      ],
+      "answer": "Merge conflicts occur when conflicting changes were made to the exact same lines of a file across merged branches. Git inserts conflict markers: `<<<<<<< HEAD` (your current branch), `=======` (separator), and `>>>>>>> branch-name` (incoming changes). To resolve: open the conflicting file in your editor, choose or combine the desired code, delete the conflict markers, run `git add <file>`, and complete the merge with `git commit`."
+    },
+    {
+      "id": "cloud-serverless",
+      "category": "Cloud & DevOps",
+      "question": "What is Serverless computing and Function-as-a-Service (FaaS)?",
+      "alternative_questions": [
+        "Explain serverless computing and AWS Lambda",
+        "What does serverless mean?",
+        "Pros and cons of serverless functions",
+        "Explain Serverless computing and Function-as-a-Service (FaaS)",
+        "Tell me about Serverless computing and Function-as-a-Service (FaaS)",
+        "Define Serverless computing and Function-as-a-Service (FaaS)"
+      ],
+      "answer": "Serverless computing executes application code in stateless, ephemeral compute containers (like AWS Lambda, Google Cloud Functions) managed entirely by cloud providers. Developers pay only for the exact milliseconds their code executes rather than provisioning idle servers, with automatic scaling from zero to thousands of requests, though cold starts can add latency."
+    },
+    {
+      "id": "cloud-s3-object-storage",
+      "category": "Cloud & DevOps",
+      "question": "What is Object Storage and how does Amazon S3 differ from Block and File storage?",
+      "alternative_questions": [
+        "Explain object storage vs block storage",
+        "What is Amazon S3 and object storage?",
+        "When to use S3 bucket instead of hard drives?",
+        "Explain Object Storage and how does Amazon S3 differ from Block and File storage",
+        "Tell me about Object Storage and how does Amazon S3 differ from Block and File storage",
+        "Define Object Storage and how does Amazon S3 differ from Block and File storage"
+      ],
+      "answer": "Object storage (like AWS S3, Google Cloud Storage) stores data as discrete objects containing data, customizable metadata, and a globally unique identifier (URL) accessible via REST APIs over HTTP. Unlike Block Storage (EBS, SSDs) which provides low-latency byte-level disk blocks for OSs and databases, Object Storage offers virtually unlimited, low-cost durability for unstructured data, media files, and backups."
+    },
+    {
+      "id": "sec-zero-trust",
+      "category": "Cybersecurity",
+      "question": "What is Zero Trust security architecture?",
+      "alternative_questions": [
+        "Explain Zero Trust architecture",
+        "What does never trust always verify mean in security?",
+        "Zero Trust network security",
+        "Explain Zero Trust security architecture",
+        "Tell me about Zero Trust security architecture",
+        "Define Zero Trust security architecture"
+      ],
+      "answer": "Zero Trust is an enterprise cybersecurity framework based on the principle of 'Never Trust, Always Verify'. Unlike legacy perimeter-based security that trusted anyone inside the corporate network, Zero Trust requires strict identity verification, mutual TLS, continuous device health checks, and least-privilege micro-segmentation for every user and service request."
+    },
+    {
+      "id": "sec-mfa-totp",
+      "category": "Cybersecurity",
+      "question": "How does Multi-Factor Authentication (MFA) and TOTP work?",
+      "alternative_questions": [
+        "How does 2FA and authenticator apps work?",
+        "What is Time-based One-Time Password (TOTP)?",
+        "Explain two-factor authentication security"
+      ],
+      "answer": "MFA requires two or more verification factors: something you know (password), something you have (phone/security key), or something you are (biometrics). Authenticator apps use Time-based One-Time Passwords (TOTP, RFC 6238), combining a shared secret cryptographic key with the current Unix timestamp through an HMAC-SHA1 algorithm to generate rotating 6-digit codes every 30 seconds."
+    },
+    {
+      "id": "ai-gradient-descent",
+      "category": "AI & Machine Learning",
+      "question": "How do gradient descent and backpropagation optimize neural networks?",
+      "alternative_questions": [
+        "Explain gradient descent and backpropagation",
+        "How do neural networks learn weights?",
+        "Stochastic Gradient Descent (SGD) explained"
+      ],
+      "answer": "Neural networks learn by minimizing a loss function. Backpropagation uses the calculus chain rule to calculate the partial derivatives (gradients) of the loss with respect to every weight in the network, working backwards from output to input. Gradient descent then adjusts the weights in the opposite direction of the gradient by a step size defined by the learning rate."
+    },
+    {
+      "id": "ai-regularization-techniques",
+      "category": "AI & Machine Learning",
+      "question": "What techniques prevent overfitting in deep learning and machine learning?",
+      "alternative_questions": [
+        "How to prevent overfitting in neural networks?",
+        "Dropout, L1, L2 regularization and data augmentation",
+        "Regularization techniques in ML"
+      ],
+      "answer": "Key regularization techniques include: L1/L2 regularization (penalizing large weights in the loss function), Dropout (randomly deactivating neurons during training to prevent co-adaptation), Early Stopping (halting training when validation loss stops improving), Data Augmentation (generating realistic variations of training inputs), and Cross-Validation."
+    },
+    {
+      "id": "prog-design-patterns",
+      "category": "Programming",
+      "question": "What are design patterns and what is the difference between Singleton and Factory patterns?",
+      "alternative_questions": [
+        "Explain Gang of Four design patterns",
+        "Singleton vs Factory pattern",
+        "Why use software design patterns?",
+        "How does Singleton differ from Factory patterns?",
+        "How do Singleton and Factory patterns differ?",
+        "Singleton versus Factory patterns",
+        "Compare Singleton and Factory patterns"
+      ],
+      "answer": "Design patterns are reusable, battle-tested architectural templates for solving common software engineering challenges. The Singleton pattern restricts instantiation of a class to one single global instance (useful for database connection pools or loggers). The Factory pattern defines an interface for creating objects, delegating instantiation logic to subclasses to decouple client code from concrete implementations."
+    },
+    {
+      "id": "prog-dependency-injection",
+      "category": "Programming",
+      "question": "What is Dependency Injection (DI) and Inversion of Control (IoC)?",
+      "alternative_questions": [
+        "Explain Dependency Injection with examples",
+        "What is IoC in software architecture?",
+        "Why use dependency injection?",
+        "Explain Dependency Injection (DI) and Inversion of Control (IoC)",
+        "Tell me about Dependency Injection (DI) and Inversion of Control (IoC)",
+        "Define Dependency Injection (DI) and Inversion of Control (IoC)"
+      ],
+      "answer": "Inversion of Control (IoC) is a design principle where the control flow of a program is inverted: instead of a class creating its own dependencies directly with `new`, the dependencies are provided ('injected') from an external assembler or DI container. Dependency Injection makes classes loosely coupled, easily configurable, and trivial to unit test using mock dependencies."
+    },
+    {
+      "id": "db-sharding-vs-partitioning",
+      "category": "Databases",
+      "question": "What is the difference between database sharding and table partitioning?",
+      "alternative_questions": [
+        "Database sharding vs partitioning",
+        "Explain horizontal sharding in databases",
+        "How to scale databases horizontally?",
+        "How does database sharding differ from table partitioning?",
+        "How do database sharding and table partitioning differ?",
+        "database sharding versus table partitioning",
+        "Compare database sharding and table partitioning",
+        "Explain the difference between database sharding and table partitioning",
+        "Tell me about the difference between database sharding and table partitioning",
+        "Define the difference between database sharding and table partitioning"
+      ],
+      "answer": "Partitioning splits a massive table into smaller, manageable chunks (e.g. by date ranges or hash keys) residing on the same database server to improve query performance. Sharding is horizontal partitioning across multiple distinct physical database servers, where each shard holds a subset of rows, distributing write/read load across independent server clusters."
+    },
+    {
+      "id": "db-replication",
+      "category": "Databases",
+      "question": "What is database replication and read replica architectures?",
+      "alternative_questions": [
+        "Explain primary-replica database replication",
+        "How do read replicas work?",
+        "Master-slave database architecture",
+        "Explain database replication and read replica architectures",
+        "Tell me about database replication and read replica architectures",
+        "Define database replication and read replica architectures"
+      ],
+      "answer": "Database replication copies data from a primary (master) database to one or more secondary (read replica) instances. All write operations (INSERT, UPDATE, DELETE) route to the primary, while read queries are load-balanced across read replicas. This scales read-heavy workloads horizontally and provides high availability failover if the primary crashes."
+    },
+    {
+      "id": "web-seo-fundamentals",
+      "category": "Web Development",
+      "question": "What are the core technical SEO best practices for web applications?",
+      "alternative_questions": [
+        "Technical SEO checklist for developers",
+        "How to optimize a website for search engines?",
+        "Meta tags, sitemaps, robots.txt and structured data"
+      ],
+      "answer": "Technical SEO fundamentals include: using semantic HTML tags (`<main>`, `<article>`, `<h1>`-`<h6>`), defining descriptive `<title>`, `<meta name=\"description\">` and OpenGraph tags, providing canonical URLs, generating an XML sitemap (`sitemap.xml`), configuring `robots.txt`, implementing Schema.org JSON-LD structured data, optimizing Core Web Vitals (LCP, FID/INP, CLS), and ensuring fast mobile-responsive rendering."
+    },
+    {
+      "id": "web-accessibility-wcag",
+      "category": "Web Development",
+      "question": "What is web accessibility (a11y) and how do you comply with WCAG guidelines?",
+      "alternative_questions": [
+        "Web accessibility best practices",
+        "How to make websites accessible?",
+        "WCAG 2.1 AA accessibility guidelines",
+        "Explain web accessibility (a11y) and how do you comply with WCAG guidelines",
+        "Tell me about web accessibility (a11y) and how do you comply with WCAG guidelines",
+        "Define web accessibility (a11y) and how do you comply with WCAG guidelines"
+      ],
+      "answer": "Web accessibility ensures websites are usable by everyone, including people with visual, auditory, motor, or cognitive impairments. Key practices: use semantic HTML elements (`<button>`, `<nav>`), provide descriptive `alt` text for images, ensure WCAG 2.1 AA color contrast ratio (minimum 4.5:1 for normal text), make all interactive features keyboard navigable with visible `:focus-visible` outlines, and use ARIA attributes only when semantic HTML is insufficient."
+    },
+    {
+      "id": "career-code-reviews",
+      "category": "Career & Growth",
+      "question": "What are best practices for conducting constructive code reviews?",
+      "alternative_questions": [
+        "How to review pull requests effectively?",
+        "Code review etiquette and best practices",
+        "What should I look for in a code review?"
+      ],
+      "answer": "Effective code reviews focus on architecture, correctness, test coverage, readability, edge cases, and security vulnerabilities rather than subjective formatting (which should be automated via Prettier/ESLint). Keep PRs small (<400 lines), explain the reasoning behind requested changes, distinguish blocking bugs from optional suggestions (e.g. using `nit:`), and praise elegant solutions."
+    },
+    {
+      "id": "career-salary-negotiation",
+      "category": "Career & Growth",
+      "question": "How should software engineers negotiate job offers?",
+      "alternative_questions": [
+        "How to negotiate a tech job offer?",
+        "Software engineering salary negotiation tips",
+        "Negotiating equity and base salary in tech"
+      ],
+      "answer": "Always express enthusiastic gratitude when an offer arrives, avoid giving a premature number, and ask for complete compensation details (base salary, bonus, equity vesting schedule, benefits, PTO). Research market rates on Levels.fyi and Glassdoor. Frame negotiations collaboratively around your demonstrated value and market data, negotiate the total compensation package, and ask for a revised offer in writing."
+    }
+  ]
+}

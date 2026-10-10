@@ -1,0 +1,6 @@
+{
+  "name": "CodeAlpha FAQ Chatbot",
+  "description": "Answers common questions about technology, programming, AI basics, education, and student life from a curated knowledge base using text similarity.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
